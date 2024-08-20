@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guided Meditation Generator</title>
+</head>
+<body>
+    <h1>Guided Meditation Generator</h1>
+
+    <form method="POST">
+        <label for="meditation_query">Enter your meditation request:</label><br>
+        <textarea id="meditation_query" name="meditation_query" rows="4" cols="50"></textarea><br>
+        <button type="submit">Generate Meditation</button>
+    </form>
+
+    {% if meditation %}
+        <h2>Generated Meditation:</h2>
+        <ol>
+        {% for item in meditation.instructions %}
+            <li>
+                {% if item.__class__.__name__ == 'Instruction' %} 
+                    <div>{{ item.text }}</div>
+                    <div>Duration: {{ item.duration }} seconds</div>
+                {% elif item.__class__.__name__ == 'Pause' %} 
+                    <div>Pause: {{ item.duration }} seconds</div>
+                {% endif %}
+                <hr>
+            </li>
+        {% endfor %}
+        </ol>
+    {% endif %}
+</body>
+</html>
