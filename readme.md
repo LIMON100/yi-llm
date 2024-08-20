@@ -2,6 +2,12 @@
 
 Generated yoga-instruction based on queries and expected duration from users.
 
+### Branches
+    master (release product for the real world)
+    staging (final test before release)
+    dev (merging different features branches and testing all)
+    frontend_limon (feature branch - Ui development)
+    yoga_instruction_limon (feature branch - backend process development)
 
 ### Folder Structure
 
