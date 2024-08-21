@@ -1,0 +1,22 @@
+name: CI for yi-llm
+
+on:
+  push:
+    branches:
+      - yoga_instruction_limon
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run tests
+      run: |
+        pytest backend/tests/
